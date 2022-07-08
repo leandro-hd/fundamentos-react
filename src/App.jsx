@@ -6,6 +6,55 @@ import styles from './App.module.css';
 
 import './global.css';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/leandro-hd.png',
+      name: 'Leandro Dias',
+      role: 'Developer @TecnoSpeed'
+    },
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Fala galeraa 👋',
+      },
+      {
+        type: 'paragraph',
+        content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      {
+        type: 'link',
+        content: 'jane.design/doctorcare'
+      },
+    ],
+    publishedAt: new Date('2022-07-07 19:34:00'),
+  },
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educator @Rocketseat'
+    },
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Fala galeraa 👋',
+      },
+      {
+        type: 'paragraph',
+        content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      {
+        type: 'link',
+        content: 'jane.design/doctorcare'
+      },
+    ],
+    publishedAt: new Date('2022-07-06 10:12:00'),
+  },
+];
+
 function App() {
   return (
     <div>
@@ -16,14 +65,15 @@ function App() {
           <Sidebar />
         </aside>
         <main>
-          <Post
-            author="Leandro Dias"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe numquam ipsum aperiam maiores incidunt sed vel. Optio ad quos unde! Tempora accusamus laboriosam asperiores fugit nesciunt adipisci nostrum eius?"
-          />
-          <Post
-            author="Godofredo José"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum vitae ratione et rerum. Voluptates delectus quod corrupti nostrum ex libero, neque laborum facilis nihil aliquam reiciendis, quisquam obcaecati quibusdam saepe?"
-          />
+          {posts.map(post => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
